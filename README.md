@@ -4,8 +4,6 @@
 
 ### 🔗 [**Live Demo →**](https://prakruti-market-sentiment.streamlit.app/)
 
-![Dashboard Hero](images/dashboard_hero.png)
-
 ---
 
 ## 🎯 What This Project Does
@@ -50,20 +48,6 @@ flowchart LR
 - **Negative-language detection worked accurately**: words like "brutal," "panic," "carnage," and "wider losses" reliably surfaced in the bottom-decile headlines.
 - News sentiment clustering above a rising price line (visible on the AAPL chart) is consistent with the *narrative-confirmation* effect — bullish coverage tends to accompany, not lead, rallies in this short window.
 
-## 📂 Project Structure
-market-sentiment-tracker/
-├── dashboard/
-│   └── app.py              # Streamlit dashboard
-├── src/
-│   ├── data_collection.py  # Yahoo Finance news + price fetching
-│   ├── database.py         # SQLAlchemy models + helpers
-│   └── sentiment_analysis.py  # VADER scoring pipeline
-├── data/
-│   └── market.db           # SQLite database (committed for demo)
-├── images/                 # Dashboard screenshots
-├── requirements.txt
-└── README.md
-
 ## 🚀 Run Locally
 
 ```bash
@@ -90,14 +74,6 @@ python -m src.sentiment_analysis
 # 7. Launch the dashboard
 streamlit run dashboard/app.py
 ```
-
-## 📷 Dashboard Views
-
-### Live headlines with mood indicators
-![Headlines View](images/headlines_view.png)
-
-### Sentiment leaderboard across tickers
-![Sentiment Leaderboard](images/sentiment_leaderboard.png)
 
 ## 🔮 Future Enhancements
 
