@@ -44,9 +44,16 @@ def load_articles_with_sentiment() -> pd.DataFrame:
             .join(SentimentScore, NewsArticle.id == SentimentScore.article_id)
             .all()
         )
-        return pd.DataFrame(rows, columns=[
+        df = pd.DataFrame(rows, columns=[
             "ticker", "title", "publisher", "url", "published_at", "sentiment"
         ])
+        # News timestamps are stored in UTC — convert to US/Eastern for display
+        df["published_at"] = (
+            pd.to_datetime(df["published_at"], utc=True)
+            .dt.tz_convert("US/Eastern")
+            .dt.tz_localize(None)
+        )
+        return df
     finally:
         session.close()
 
